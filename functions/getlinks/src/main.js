@@ -37,5 +37,5 @@ export default async ({ req, res, log, error }) => {
   //   connect: "https://appwrite.io/discord",
   //   getInspired: "https://builtwith.appwrite.io",
   // });
-  return imageData;
+  return res.json(imageData);
 };
