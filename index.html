@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitLife - Transform Your Body, Transform Your Life</title>
+    
+    <!-- Top1 -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+            z-index: 1000;
+        }
+
+        .navbar-transparent {
+            background-color: transparent;
+        }
+
+        .navbar-black {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .logo {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .hero {
+            height: 80vh;
+            background-image:  url('./assets/bg_test.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .cta-button {
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .primary-button {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .primary-button:hover {
+            background-color: #2980b9;
+        }
+
+        .secondary-button {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .secondary-button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive text and layout */
+        @media screen and (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media screen and (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                right: -100%;
+                top: 70px;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                align-items: center;
+                transition: right 0.5s ease;
+                padding: 20px 0;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+                max-width: 90%;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                height: 50px;
+                width: 200px;
+                font-size: 0.9rem;
+                border-radius: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .logo {
+                font-size: 24px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 0.9rem;
+            }
+            
+            .cta-button {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media screen and (max-width: 380px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+
+    <!-- Top2 -->
+    <style>
+    .trainer-section-top2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 2rem;
+        }
+
+        .trainer-info-top2 {
+            flex: 1;
+        }
+
+        .trainer-image-top2 {
+            flex: 1;
+            max-width: 350px;
+        }
+
+        .trainer-image-top2 img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            object-fit: contain;
+        }
+
+        .trainer-title-top2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: black;
+        }
+
+        .certified-badge-top2 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .badge-icon-top2 {
+            color: #3498db;
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+        }
+        .sub-badge-icon-top2{
+            color: black;
+        }
+
+        .trainer-description-top2 {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            color: rgb(63, 63, 63);
+            
+        }
+
+        .view-certification-top2 {
+            display: inline-block;
+            background-color: #3498db;
+            color: rgb(255, 255, 255);
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .view-certification-top2:hover {
+            background-color: #2980b9;
+        }
+
+        /* Programs section */
+        .programs-section-top2 {
+            padding: 3rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .programs-container-top2 {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .program-card-top2 {
+            flex: 1;
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .program-icon-top2 {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+        }
+
+        .program-title-top2 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.75rem;
+            color: black;
+        }
+
+        .program-description-top2 {
+            font-size: 0.95rem;
+            line-height: 1.4;
+            color: rgb(62, 62, 62);
+        }
+
+        /* SVG icons styling */
+        .svg-icon-top2 {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .trainer-title-top2 {
+                font-size: 2rem;
+            }
+
+            .program-card-top2 {
+                padding: 1rem;
+            }
+
+            .program-icon-top2 {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .trainer-section-top2 {
+                flex-direction: column-reverse;
+            }
+
+            .trainer-title-top2 {
+                font-size: 1.8rem;
+            }
+
+            .trainer-description-top2 {
+                font-size: 0.9rem;
+            }
+
+            .programs-container-top2 {
+                display: flex;
+                overflow-x: auto;
+                padding-bottom: 1rem;
+                scroll-snap-type: x mandatory;
+            }
+
+            .program-card-top2 {
+                min-width: 200px;
+                scroll-snap-align: start;
+            }
+
+            .program-title-top2 {
+                font-size: 1rem;
+            }
+
+            .program-description-top2 {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .trainer-title-top2 {
+                font-size: 1.5rem;
+            }
+
+            .program-icon-top2 {
+                width: 50px;
+                height: 50px;
+            }
+
+            .program-card-top2 {
+                min-width: 150px;
+            }
+        }
+    </style>
+
+    <!-- Top3 -->
+     <style>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .journey-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .journey-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .journey-intro {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 50px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgb(80, 80, 80);
+        }
+
+        .journey-timeline {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .journey-card {
+            flex: 1;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 10px;
+        }
+
+        .journey-image {
+            width: 80%;
+            height: auto;
+            border-radius: 0;
+            display: block;
+            border-radius: 10px;
+        }
+
+        .journey-card-content {
+            padding: 20px;
+        }
+
+        .journey-card-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: black;
+        }
+
+        .journey-card-subtitle {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .journey-conclusion {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgb(73, 73, 73);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .journey-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .journey-intro, .journey-conclusion {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .journey-timeline {
+                flex-direction: column;
+            }
+            
+            .journey-card {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            
+            .journey-header h1 {
+                font-size: 2rem;
+            }
+            
+            .journey-card-title {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .journey-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .journey-intro, .journey-conclusion {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+            
+            .journey-card-title {
+                font-size: 1.2rem;
+            }
+            
+            .journey-card-subtitle {
+                font-size: 0.9rem;
+            }
+        }
+     </style>
+</head>
+<body>
+    <header class="navbar-transparent">
+        <a href="#" class="logo">FitLife</a>
+        <ul class="nav-links">
+            <li><a href="#about">About me</a></li>
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="#journey">My Journey</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </header>
+
+    <!-- Top1 -->
+    <section class="hero">
+        <h1>Transform your body,<br>Transform your Life</h1>
+        <p>Expert guided fitness programs tailored for ages 22-60. Whether you're aiming for a six pack or overall fitness, we've got you covered.</p>
+        <div class="cta-buttons">
+            <a href="#" class="cta-button primary-button">Start your journey ▶</a>
+            <a href="#" class="cta-button secondary-button"> Available in GTA</a>
+        </div>
+    </section>
+
+    <!-- Top2 -->
+    <section class="trainer-section-top2">
+        <div class="trainer-info-top2">
+            <h1 class="trainer-title-top2">Your certified personal trainer</h1>
+            <div class="certified-badge-top2">
+                <span class="badge-icon-top2">🔵</span>
+                <span class="sub-badge-icon-top2">ACE Certified Personal Trainer</span>
+            </div>
+            <p class="trainer-description-top2">
+                As a certified ACE Personal Trainer, you empower individuals to achieve their fitness
+                aspirations through expertly designed and motivating workout programs. Your
+                dedication to health and wellness, coupled with your ACE credentials, ensures you
+                provide safe, effective, and personalized guidance to help clients reach their full
+                potential.
+            </p>
+            <a href="#" class="view-certification-top2">View Certification</a>
+        </div>
+        <div class="trainer-image-top2">
+            <img src="./assets/top2_bgf.png" alt="Personal Trainer" />
+        </div>
+    </section>
+    <!-- Programs Section -->
+    <section class="programs-section-top2">
+        <div class="programs-container-top2">
+            <div class="program-card-top2">
+                <div class="program-icon-top2">
+                    <svg class="svg-icon-top2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="40" stroke="#3498db" stroke-width="6" fill="none" />
+                        <path d="M30,50 C30,30 70,30 70,50 C70,70 30,70 30,50 Z" stroke="#3498db" stroke-width="6" fill="none" />
+                    </svg>
+                </div>
+                <h3 class="program-title-top2">Personalized programs</h3>
+                <p class="program-description-top2">
+                    Customized workout plans based on your age, fitness level and goals
+                </p>
+            </div>
+            <div class="program-card-top2">
+                <div class="program-icon-top2">
+                    <svg class="svg-icon-top2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="40" stroke="#3498db" stroke-width="6" fill="none" />
+                        <path d="M50,30 L50,50 L70,50" stroke="#3498db" stroke-width="6" fill="none" stroke-linecap="round" />
+                    </svg>
+                </div>
+                <h3 class="program-title-top2">3-Month Transformation</h3>
+                <p class="program-description-top2">
+                    Structured programs designed to show visible results in just 3 months
+                </p>
+            </div>
+            <div class="program-card-top2">
+                <div class="program-icon-top2">
+                    <svg class="svg-icon-top2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="35" cy="35" r="15" stroke="#3498db" stroke-width="4" fill="none" />
+                        <circle cx="65" cy="35" r="10" stroke="#3498db" stroke-width="4" fill="none" />
+                        <path d="M20,80 C20,60 80,60 80,80" stroke="#3498db" stroke-width="4" fill="none" />
+                        <path d="M50,55 L50,70" stroke="#3498db" stroke-width="4" fill="none" />
+                    </svg>
+                </div>
+                <h3 class="program-title-top2">All ages welcome</h3>
+                <p class="program-description-top2">
+                    Programs adapted for different age groups from 22 to 60
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top3 -->
+    <div class="container">
+        <div class="journey-header">
+            <h1>My Transformation Journey</h1>
+        </div>
+        
+        <div class="journey-intro">
+            <p>I started my fitness journey in 2020 during the peak of COVID 19. Like many others, I was a chubby kid looking to make a change in my life. Through dedication, consistency and hard work, I transformed myself from someone who struggled with that body image into chiseled, muscular who now help others achieve their fitness goals.</p>
+        </div>
+        
+        <div class="journey-timeline">
+            <div class="journey-card">
+                <img src="./assets/beforef.png" alt="Fitness transformation before" class="journey-image">
+                <div class="journey-card-content">
+                    <h2 class="journey-card-title">Where I started</h2>
+                    <p class="journey-card-subtitle">2020 - The beginning of transformation journey</p>
+                </div>
+            </div>
+            
+            <div class="journey-card">
+                <img src="./assets/after.jpg" alt="Fitness transformation after" class="journey-image">
+                <div class="journey-card-content">
+                    <h2 class="journey-card-title">Where I Am Now</h2>
+                    <p class="journey-card-subtitle">2024 - Transformed, Certified and helping others achieving this dream</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="journey-conclusion">
+            <p>This journey taught me that with the right mindset guidance and dedication anyone can transform their body and life. Now I am a certified trainer, I'm passionate about helping others achieve their fitness goals and experience the same life changing transformation.</p>
+        </div>
+    </div>
+
+    <script>
+        // Navbar color change on scroll
+        window.onscroll = function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 10) {
+                header.classList.remove('navbar-transparent');
+                header.classList.add('navbar-black');
+            } else {
+                header.classList.add('navbar-transparent');
+                header.classList.remove('navbar-black');
+            }
+        };
+
+        // Hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        const navItems = document.querySelectorAll('.nav-links a');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const programsContainer = document.querySelector('.programs-container-top2');
+            
+            // Function to handle responsive behavior
+            function handleResponsive() {
+                if (window.innerWidth <= 768) {
+                    // Enable smooth scrolling for mobile
+                    programsContainer.style.scrollBehavior = 'smooth';
+                }
+            }
+            
+            // Initial check
+            handleResponsive();
+            
+            // Check on resize
+            window.addEventListener('resize', handleResponsive);
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create fade-in effect for elements
+            const fadeInElements = document.querySelectorAll('.journey-card, .journey-intro, .journey-conclusion');
+            
+            // Simple function to check if element is in viewport
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.bottom >= 0
+                );
+            }
+            
+            // Set initial opacity
+            fadeInElements.forEach(el => {
+                el.style.transition = 'opacity 0.8s ease-in-out, transform 0.8s ease-in-out';
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+            });
+            
+            // Function to handle scroll events
+            function handleScroll() {
+                fadeInElements.forEach(el => {
+                    if (isInViewport(el) && el.style.opacity === '0') {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+            
+            // Add scroll event listener
+            window.addEventListener('scroll', handleScroll);
+            
+            // Trigger once on load
+            setTimeout(handleScroll, 100);
+        });
+    </script>
+</body>
+</html>
